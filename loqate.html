@@ -1,0 +1,106 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="http://services.postcodeanywhere.co.uk/css/address-3.91.css" />
+    <script type="text/javascript" src="http://services.postcodeanywhere.co.uk/js/address-3.91.js"></script>
+
+    <script>
+        var fields = [
+                { element: "Line1", field: "Line1" },
+                { element: "Line2", field: "Line2", mode: pca.fieldMode.POPULATE },
+                { element: "City", field: "City", mode: pca.fieldMode.POPULATE },
+                { element: "Province", field: "Province", mode: pca.fieldMode.POPULATE },
+                { element: "PostalCode", field: "PostalCode", mode: pca.fieldMode.POPULATE },
+                { element: "CountryName", field: "CountryName", mode: pca.fieldMode.COUNTRY }
+            ],
+
+            options = {
+                key: "JC95-GJ44-CN19-GN44",
+                search: { countries: "USA" },
+                suppressAutocomplete: false
+            },
+
+            // //Initialize Capture control
+            control = new pca.Address(fields, options);
+
+
+        control.listen("populate", function(address, variations) {
+            debugger;
+        });
+
+    </script>
+    <style>
+        input, label {
+            margin: 5px 5px;
+        }
+
+        .form-group {
+            margin: 30px auto;
+            width: 450px;
+        }
+
+        .form-control {
+            float: left;
+        }
+
+        #inputStreet {
+            width: 100%;
+        }
+
+        #inputCity {
+            width: 50%;
+        }
+
+        #inputState {
+            width: 15%;
+        }
+
+        #inputZip {
+            width: 28%;
+        }
+
+        #inputCounty {
+            width: 45%;
+        }
+
+        #inputCountry {
+            width: 50%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="fieldWrap">
+    <input type="text" name="search" class="searchInput" id="searchBox" placeholder="Enter Address">
+    <button>Search</button>
+</div>
+<div class="form-group">
+    <input type="street"
+           class="form-control"
+           id="autocomplete"
+           placeholder="Street">
+
+    <input type="city"
+           class="form-control"
+           id="inputCity"
+           placeholder="City">
+
+    <input type="state"
+           class="form-control"
+           id="inputState"
+           placeholder="State">
+
+    <input type="zip"
+           class="form-control"
+           id="inputZip"
+           placeholder="Zip">
+
+    <input type="county"
+           class="form-control"
+           id="inputCounty"
+           placeholder="County">
+
+    <input type="country"
+           class="form-control"
+           id="inputCountry"
+           placeholder="Country">
+</div>
+</body>
